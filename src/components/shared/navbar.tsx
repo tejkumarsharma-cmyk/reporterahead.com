@@ -101,7 +101,7 @@ export function Navbar() {
   // Custom navigation for Reporterahead with specific pages
   const customNavigation = [
     { name: 'Home', href: '/', key: 'home', label: 'Home', route: '/' },
-    { name: 'Press Releases', href: '/press-releases', key: 'press-releases', label: 'Press Releases', route: '/press-releases' },
+    { name: 'Release Media', href: '/press-releases', key: 'press-releases', label: 'Release Media', route: '/press-releases' },
     { name: 'Pricing', href: '/pricing', key: 'pricing', label: 'Pricing', route: '/pricing' },
     { name: 'About', href: '/about', key: 'about', label: 'About', route: '/about' },
     { name: 'Blog', href: '/blog', key: 'blog', label: 'Blog', route: '/blog' },

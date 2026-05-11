@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildPageMetadata({
     path: '/pricing',
     title: 'Pricing Plans - Reporterahead',
-    description: 'Choose the perfect press release distribution plan for your needs. From startups to enterprises, we have options for every budget.',
-    keywords: ['press release pricing', 'distribution plans', 'media outreach costs'],
+    description: 'Choose the perfect release media distribution plan for your needs. From startups to enterprises, we have options for every budget.',
+    keywords: ['release media pricing', 'distribution plans', 'media outreach costs'],
   })
 }
 
@@ -71,12 +71,12 @@ const addOns = [
   {
     name: 'Express Distribution',
     price: '$199',
-    description: 'Get your press release distributed within 4 hours'
+    description: 'Get your release media distributed within 4 hours'
   },
   {
     name: 'Professional Writing',
     price: '$299',
-    description: 'Our expert writers will craft your press release for maximum impact'
+    description: 'Our expert writers will craft your release media for maximum impact'
   },
   {
     name: 'Media Monitoring Plus',
@@ -130,7 +130,7 @@ export default function PricingPage() {
               Simple, Transparent Pricing
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-600">
-              Choose the perfect plan for your press release distribution needs
+              Choose the perfect plan for your release media distribution needs
             </p>
             <div className="mt-8 flex justify-center gap-1">
               {[...Array(5)].map((_, i) => (
@@ -255,7 +255,7 @@ export default function PricingPage() {
               Enhance Your Distribution
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Add these powerful services to maximize your press release impact
+              Add these powerful services to maximize your release media impact
             </p>
           </div>
           
@@ -305,7 +305,7 @@ export default function PricingPage() {
             Ready to Get Your Story Out There?
           </h2>
           <p className="mt-4 text-xl text-white/90">
-            Join thousands of companies who trust Reporterahead for their press release distribution
+            Join thousands of companies who trust Reporterahead for their release media distribution
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Link

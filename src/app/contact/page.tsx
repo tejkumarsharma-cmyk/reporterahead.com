@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { Mail, Phone, MapPin, Send, Clock, Users, Globe, Headphones } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { NavbarShell } from '@/components/shared/navbar-shell'
 import { Footer } from '@/components/shared/footer'
 import { buildPageMetadata } from '@/lib/seo'
@@ -9,61 +8,16 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildPageMetadata({
     path: '/contact',
     title: 'Contact Us - Reporterahead',
-    description: 'Get in touch with the Reporterahead team for press release distribution, media inquiries, and partnership opportunities.',
+    description: 'Get in touch with the Reporterahead team for release media distribution, media inquiries, and partnership opportunities.',
     keywords: ['contact', 'support', 'media inquiries', 'partnerships'],
   })
 }
-
-const contactOptions = [
-  {
-    icon: Globe,
-    title: 'Media Inquiries',
-    description: 'For journalists, reporters, and media professionals seeking press releases and company announcements.',
-    email: 'media@reporterahead.com',
-    phone: '+1 (555) 123-4567'
-  },
-  {
-    icon: Users,
-    title: 'Customer Support',
-    description: 'Get help with press release distribution, account management, and technical support.',
-    email: 'support@reporterahead.com',
-    phone: '+1 (555) 123-4568'
-  },
-  {
-    icon: Headphones,
-    title: 'Partnerships',
-    description: 'Explore partnership opportunities, bulk distribution deals, and enterprise solutions.',
-    email: 'partnerships@reporterahead.com',
-    phone: '+1 (555) 123-4569'
-  }
-]
-
-const offices = [
-  {
-    city: 'San Francisco',
-    address: '123 Market Street, Suite 100',
-    state: 'CA 94105',
-    country: 'United States'
-  },
-  {
-    city: 'New York',
-    address: '456 Madison Avenue, Floor 15',
-    state: 'NY 10022',
-    country: 'United States'
-  },
-  {
-    city: 'London',
-    address: '789 Oxford Street',
-    state: '',
-    country: 'United Kingdom'
-  }
-]
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       <NavbarShell />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-red-50 to-orange-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -72,55 +26,8 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-600">
-              We're here to help with your press release distribution and media needs
+              We're here to help with your release media distribution and media needs
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Options */}
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              How Can We Help?
-            </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Choose the right contact option for your needs
-            </p>
-          </div>
-
-          <div className="grid gap-8 lg:grid-cols-3">
-            {contactOptions.map((option, index) => (
-              <div key={index} className="rounded-xl border border-gray-200 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#E02401]/10">
-                  <option.icon className="h-6 w-6 text-[#E02401]" />
-                </div>
-                <h3 className="mt-4 text-xl font-semibold text-gray-900">{option.title}</h3>
-                <p className="mt-2 text-gray-600">{option.description}</p>
-                
-                <div className="mt-6 space-y-3">
-                  <div className="flex items-center gap-3">
-                    <Mail className="h-4 w-4 text-gray-400" />
-                    <a 
-                      href={`mailto:${option.email}`}
-                      className="text-[#E02401] hover:text-[#C01E01]"
-                    >
-                      {option.email}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="h-4 w-4 text-gray-400" />
-                    <a 
-                      href={`tel:${option.phone}`}
-                      className="text-[#E02401] hover:text-[#C01E01]"
-                    >
-                      {option.phone}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -206,7 +113,7 @@ export default function ContactPage() {
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-[#E02401] focus:ring-[#E02401]"
                 >
                   <option value="">Select a topic</option>
-                  <option value="media-distribution">Press Release Distribution</option>
+                  <option value="media-distribution">release media distribution</option>
                   <option value="media-inquiry">Media Inquiry</option>
                   <option value="partnership">Partnership Opportunity</option>
                   <option value="technical-support">Technical Support</option>
@@ -246,36 +153,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Office Locations */}
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Our Offices
-            </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Visit us at one of our global locations
-            </p>
-          </div>
-
-          <div className="grid gap-8 lg:grid-cols-3">
-            {offices.map((office, index) => (
-              <div key={index} className="rounded-xl border border-gray-200 bg-white p-8 shadow-lg">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#F78812]/10">
-                  <MapPin className="h-6 w-6 text-[#F78812]" />
-                </div>
-                <h3 className="mt-4 text-xl font-semibold text-gray-900">{office.city}</h3>
-                <div className="mt-2 space-y-1 text-gray-600">
-                  <p>{office.address}</p>
-                  {office.state && <p>{office.state}</p>}
-                  <p>{office.country}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
@@ -290,26 +167,11 @@ export default function ContactPage() {
 
           <div className="space-y-4">
             {[
-              {
-                question: 'How quickly can you distribute my press release?',
-                answer: 'Standard distribution takes 24-48 hours. We also offer express distribution within 4 hours for urgent releases.'
-              },
-              {
-                question: 'What types of companies do you work with?',
-                answer: 'We work with companies of all sizes, from startups to Fortune 500 corporations, across all industries.'
-              },
-              {
-                question: 'Can I track the performance of my press release?',
-                answer: 'Yes, all our plans include detailed analytics showing media pickup, views, engagement, and geographic distribution.'
-              },
-              {
-                question: 'Do you offer writing services for press releases?',
-                answer: 'Yes, we have professional writers who can help craft compelling press releases that maximize media coverage.'
-              },
-              {
-                question: 'What is your refund policy?',
-                answer: 'We offer a 100% satisfaction guarantee. If you\'re not satisfied with the distribution results, we\'ll provide a full refund or redistribute at no additional cost.'
-              }
+              { question: 'How quickly can you distribute my release media?', answer: 'Standard distribution takes 24-48 hours. We also offer express distribution within 4 hours for urgent releases.' },
+              { question: 'What types of companies do you work with?', answer: 'We work with companies of all sizes, from startups to Fortune 500 corporations, across all industries.' },
+              { question: 'Can I track the performance of my release media?', answer: 'Yes, all our plans include detailed analytics showing media pickup, views, engagement, and geographic distribution.' },
+              { question: 'Do you offer writing services for release media?', answer: 'Yes, we have professional writers who can help craft compelling release media that maximize media coverage.' },
+              { question: "What is your refund policy?", answer: "We offer a 100% satisfaction guarantee. If you're not satisfied with the distribution results, we'll provide a full refund or redistribute at no additional cost." }
             ].map((faq, index) => (
               <div key={index} className="rounded-xl bg-white p-6 shadow-lg">
                 <h3 className="text-lg font-semibold text-gray-900">{faq.question}</h3>
