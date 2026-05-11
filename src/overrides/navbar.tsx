@@ -5,14 +5,13 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Search, Menu, X } from 'lucide-react'
 import { SITE_CONFIG } from '@/lib/site-config'
-import { siteIdentity } from '@/config/site.identity'
 import { cn } from '@/lib/utils'
 
 export const NAVBAR_OVERRIDE_ENABLED = true
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Press releases', href: '/press-releases' },
+  { label: 'Release media', href: '/press-releases' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -25,7 +24,7 @@ export function NavbarOverride() {
     <header className="sticky top-0 z-50 w-full">
       {/* Top announcement bar — brand red */}
       <div className="bg-[#E02401] px-4 py-2 text-center text-sm font-medium text-white/90">
-        {siteIdentity.tagline}&nbsp;·&nbsp;Media intelligence
+        {SITE_CONFIG.tagline}&nbsp;·&nbsp;Media intelligence
       </div>
 
       {/* Main nav bar — white */}
@@ -33,15 +32,12 @@ export function NavbarOverride() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
 
           {/* Logo */}
-          <Link href="/" className="flex shrink-0 items-center gap-2.5">
-            <div className="leading-tight">
-              <span className="block text-[15px] font-bold uppercase tracking-wide text-gray-900">
-                {SITE_CONFIG.name}
-              </span>
-              <span className="block text-[10px] uppercase tracking-widest text-gray-400">
-                {siteIdentity.domain}
-              </span>
-            </div>
+          <Link href="/" className="flex shrink-0 items-center">
+            <img
+              src="/logo.png"
+              alt={SITE_CONFIG.name}
+              className="h-10 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop nav links */}
@@ -85,13 +81,7 @@ export function NavbarOverride() {
                 href="/press-releases"
                 className="rounded-full bg-[#E02401] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#C01E01]"
               >
-                Press releases
-              </Link>
-              <Link
-                href="/pricing"
-                className="rounded-full border border-[#E02401] bg-white px-4 py-2 text-sm font-semibold text-[#E02401] transition-colors hover:bg-red-50"
-              >
-                Request demo
+                Release media
               </Link>
             </div>
 
@@ -138,14 +128,7 @@ export function NavbarOverride() {
                 onClick={() => setMobileOpen(false)}
                 className="rounded-full bg-[#E02401] px-4 py-2 text-center text-sm font-semibold text-white hover:bg-[#C01E01]"
               >
-                Press releases
-              </Link>
-              <Link
-                href="/pricing"
-                onClick={() => setMobileOpen(false)}
-                className="rounded-full border border-[#E02401] px-4 py-2 text-center text-sm font-semibold text-[#E02401] hover:bg-red-50"
-              >
-                Request demo
+                Release media
               </Link>
             </div>
           </div>
