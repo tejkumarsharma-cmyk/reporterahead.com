@@ -42,7 +42,7 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
                 Amplify Your Story Across Global Media
               </h1>
               <p className="mt-6 text-xl leading-8 text-gray-600">
-                Connect with 50,000+ journalists and media outlets. Get your press releases in front of the right audience and drive meaningful coverage for your brand.
+                Connect with 50,000+ journalists and media outlets. Get your release media in front of the right audience and drive meaningful coverage for your brand.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link 
@@ -99,7 +99,7 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
             </h2>
             <div className="mt-4 text-5xl font-bold text-[#E02401]">50,000+</div>
             <p className="mt-4 text-lg text-gray-600">
-              Press releases distributed for startups, Fortune 500 companies, and everything in between
+              Release media distributed for startups, Fortune 500 companies, and everything in between
             </p>
           </div>
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
@@ -135,6 +135,7 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
                 name: "Alexandra Chen",
                 company: "NexusTech",
                 role: "VP of Communications",
+                avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop&crop=face",
                 content: "We saw a 300% increase in media pickup after switching to Reporterahead. Our product launch reached over 2 million readers through their network.",
                 rating: 5
               },
@@ -142,6 +143,7 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
                 name: "Marcus Williams",
                 company: "GreenFuture Solutions",
                 role: "CEO",
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=face",
                 content: "The targeted distribution helped us secure coverage in major environmental publications. Exactly what our sustainability initiative needed.",
                 rating: 5
               },
@@ -149,6 +151,7 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
                 name: "Jennifer Foster",
                 company: "HealthBridge Medical",
                 role: "Marketing Director",
+                avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop&crop=face",
                 content: "From startup to industry leader in 6 months. Reporterahead's distribution was key to our rapid growth and credibility.",
                 rating: 5
               }
@@ -157,7 +160,11 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
                 <Quote className="mb-4 h-8 w-8 text-[#F78812]" />
                 <p className="text-lg text-gray-700">{testimonial.content}</p>
                 <div className="mt-6 flex items-center">
-                  <div className="h-12 w-12 rounded-full bg-gray-200"></div>
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="h-12 w-12 rounded-full object-cover"
+                  />
                   <div className="ml-4">
                     <div className="font-semibold text-gray-900">{testimonial.name}</div>
                     <div className="text-sm text-gray-600">{testimonial.role} at {testimonial.company}</div>
@@ -188,7 +195,7 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
           <div className="mt-12 grid gap-8 lg:grid-cols-4">
             {[
               { icon: Target, title: "Pick where & when", desc: "Choose your target audience and distribution timing" },
-              { icon: Zap, title: "Publish", desc: "Submit your press release with our easy-to-use platform" },
+              { icon: Zap, title: "Publish", desc: "Submit your release media with our easy-to-use platform" },
               { icon: Globe, title: "Be seen", desc: "Your story reaches thousands of journalists and media outlets" },
               { icon: BarChart, title: "Track results", desc: "Monitor performance with detailed analytics and reports" }
             ].map((step, i) => (
@@ -238,31 +245,49 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
               Latest Insights
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Tips and best practices for effective press release distribution
+              Tips and best practices for effective release media distribution
             </p>
           </div>
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="rounded-xl bg-white p-6 shadow-lg transition-all hover:shadow-xl">
-                <div className="aspect-video rounded-lg bg-gray-200"></div>
-                <h3 className="mt-4 text-lg font-semibold text-gray-900">
-                  How to Write a Press Release That Gets Noticed
-                </h3>
-                <p className="mt-2 text-gray-600">
-                  Learn the essential elements of crafting compelling press releases that capture media attention.
-                </p>
-                <Link href="/blog" className="mt-4 inline-flex items-center text-[#E02401] hover:text-[#C01E01]">
-                  Read more <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+            {[
+              { id: 1, title: 'TechStart Inc. Announces $50M Series C Funding Round', excerpt: 'Leading AI technology company secures major investment to expand global operations and develop next-generation machine learning platforms.', image: 'https://picsum.photos/seed/tech1/600/400', category: 'Technology' },
+              { id: 2, title: 'Global Marketing Co. Launches Revolutionary Digital Campaign Platform', excerpt: 'New platform promises to transform how businesses connect with customers through AI-driven personalization and real-time analytics.', image: 'https://picsum.photos/seed/marketing2/600/400', category: 'Marketing' },
+              { id: 3, title: 'Innovation Labs Partners with Major Universities for Research Initiative', excerpt: 'Strategic collaboration aims to advance sustainable technology solutions and create breakthrough innovations in renewable energy.', image: 'https://picsum.photos/seed/research3/600/400', category: 'Research' },
+              { id: 4, title: 'EcoTech Solutions Unveils Carbon-Neutral Manufacturing Process', excerpt: 'Pioneering sustainable manufacturing method reduces carbon emissions by 90% while maintaining production efficiency and cost-effectiveness.', image: 'https://picsum.photos/seed/eco4/600/400', category: 'Sustainability' },
+              { id: 5, title: 'HealthTech Startup Receives FDA Approval for Revolutionary Medical Device', excerpt: 'Breakthrough diagnostic technology promises early detection of diseases with unprecedented accuracy and non-invasive procedures.', image: 'https://picsum.photos/seed/health5/600/400', category: 'Healthcare' },
+              { id: 6, title: 'FinTech Company Disrupts Traditional Banking with Digital-First Approach', excerpt: 'New mobile banking platform offers zero-fee transactions, AI-powered financial advice, and seamless international payments.', image: 'https://picsum.photos/seed/finance6/600/400', category: 'Finance' },
+            ].map((item) => (
+              <div key={item.id} className="group rounded-xl bg-white shadow-lg transition-all hover:shadow-xl overflow-hidden">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="inline-flex items-center rounded-full bg-[#F78812]/10 px-3 py-1 text-xs font-semibold text-[#F78812]">
+                    {item.category}
+                  </span>
+                  <h3 className="mt-3 text-lg font-semibold text-gray-900 group-hover:text-[#E02401] line-clamp-2">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                    {item.excerpt}
+                  </p>
+                  <Link href={`/press-releases/${item.id}`} className="mt-4 inline-flex items-center text-[#E02401] hover:text-[#C01E01] text-sm font-medium">
+                    Read more <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Link 
-              href="/blog" 
+            <Link
+              href="/press-releases"
               className="inline-flex items-center gap-2 rounded-lg bg-[#E02401] px-6 py-3 text-base font-semibold text-white transition-all hover:bg-[#C01E01]"
             >
-              View More Articles
+              View All Release Media
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
@@ -281,21 +306,26 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
             </p>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {[...Array(6)].map((_, i) => (
+            {[
+              { name: 'Alexandra Chen', role: 'VP of Communications, NexusTech', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face', review: 'Reporterahead helped us reach over 2 million readers with our product launch. The distribution speed and media coverage exceeded all expectations.' },
+              { name: 'Marcus Williams', role: 'CEO, GreenFuture Solutions', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face', review: 'We secured coverage in 50+ major publications within 24 hours. The targeted distribution to environmental media was exactly what we needed.' },
+              { name: 'Jennifer Foster', role: 'Marketing Director, HealthBridge', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face', review: 'From startup to industry leader in 6 months. The analytics dashboard gave us clear visibility into every pickup and engagement metric.' },
+              { name: 'David Park', role: 'Founder, FinEdge Capital', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face', review: 'The platform is incredibly easy to use. We submitted our funding announcement and it was live across 300+ outlets the same day. Outstanding.' },
+              { name: 'Ryan Mitchell', role: 'Head of PR, CloudStack Inc.', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face', review: 'Best investment we made for our media strategy. The SEO boost from the distribution alone was worth every penny. Highly recommend.' },
+              { name: 'Carlos Mendez', role: 'Communications Lead, AutoDrive', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face', review: 'Our EV launch got picked up by TechCrunch, Reuters, and Bloomberg — all through Reporterahead. The reach is genuinely global.' },
+            ].map((item, i) => (
               <div key={i} className="rounded-xl bg-white p-6 shadow-lg">
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} className="h-5 w-5 fill-[#F78812] text-[#F78812]" />
                   ))}
                 </div>
-                <p className="mt-4 text-gray-700">
-                  "Excellent service! Our press release was distributed to hundreds of media outlets within hours."
-                </p>
+                <p className="mt-4 text-gray-700">"{item.review}"</p>
                 <div className="mt-6 flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-gray-200"></div>
+                  <img src={item.avatar} alt={item.name} className="h-10 w-10 rounded-full object-cover" />
                   <div>
-                    <div className="font-semibold text-gray-900">John Doe</div>
-                    <div className="text-sm text-gray-600">CEO, Tech Company</div>
+                    <div className="font-semibold text-gray-900">{item.name}</div>
+                    <div className="text-sm text-gray-600">{item.role}</div>
                   </div>
                 </div>
               </div>
@@ -312,14 +342,14 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
               Frequently Asked Questions
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Everything you need to know about our press release distribution service
+              Everything you need to know about our release media distribution service
             </p>
           </div>
           <div className="mt-12 space-y-4">
             {[
               {
-                q: "How quickly will my press release be distributed?",
-                a: "Once submitted, your press release is typically distributed within 24-48 hours to our extensive network of media outlets."
+                q: "How quickly will my release media be distributed?",
+                a: "Once submitted, your release media is typically distributed within 24-48 hours to our extensive network of media outlets."
               },
               {
                 q: "Can I target specific industries or regions?",
@@ -334,12 +364,12 @@ function MediaPressReleaseHome({ primaryTask, posts }: { primaryTask?: any; post
                 a: "Our packages include distribution to thousands of journalists, media monitoring, analytics reports, and optimization recommendations."
               },
               {
-                q: "Can I edit my press release after submission?",
+                q: "Can I edit my release media after submission?",
                 a: "Yes, you can make edits within the first 2 hours of submission. After distribution begins, changes require additional processing."
               },
               {
                 q: "Do you offer writing assistance?",
-                a: "Yes, we have professional writers who can help craft compelling press releases that maximize media pickup."
+                a: "Yes, we have professional writers who can help craft compelling release media that maximize media pickup."
               }
             ].map((faq, i) => (
               <div key={i} className="rounded-xl bg-white p-6 shadow-lg">

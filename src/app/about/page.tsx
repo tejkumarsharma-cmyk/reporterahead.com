@@ -9,13 +9,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildPageMetadata({
     path: '/about',
     title: 'About Us - Reporterahead',
-    description: 'Learn about Reporterahead\'s mission to revolutionize press release distribution and connect companies with global media.',
-    keywords: ['about', 'company', 'mission', 'press release distribution'],
+    description: 'Learn about Reporterahead\'s mission to revolutionize release media distribution and connect companies with global media.',
+    keywords: ['about', 'company', 'mission', 'release media distribution'],
   })
 }
 
 const stats = [
-  { value: '50K+', label: 'Press Releases Distributed' },
+  { value: '50K+', label: 'release media Distributed' },
   { value: '10K+', label: 'Media Outlets' },
   { value: '125M+', label: 'Global Reach' },
   { value: '98%', label: 'Client Satisfaction' }
@@ -25,7 +25,7 @@ const values = [
   {
     icon: Target,
     title: 'Mission-Driven',
-    description: 'We exist to help companies share their stories with the world through effective press release distribution.'
+    description: 'We exist to help companies share their stories with the world through effective release media distribution.'
   },
   {
     icon: Zap,
@@ -40,7 +40,7 @@ const values = [
   {
     icon: Globe,
     title: 'Global Reach',
-    description: 'Connect with media outlets and journalists worldwide to maximize your press release impact.'
+    description: 'Connect with media outlets and journalists worldwide to maximize your release media impact.'
   }
 ]
 
@@ -49,25 +49,25 @@ const team = [
     name: 'Sarah Johnson',
     role: 'CEO & Founder',
     bio: 'Former journalist turned tech entrepreneur with 15+ years in media and communications.',
-    avatar: '/placeholder-avatar-1.jpg'
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=160&h=160&fit=crop&crop=face'
   },
   {
     name: 'Michael Chen',
     role: 'CTO',
     bio: 'Tech visionary focused on building scalable distribution platforms and AI-powered analytics.',
-    avatar: '/placeholder-avatar-2.jpg'
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&h=160&fit=crop&crop=face'
   },
   {
     name: 'Emily Davis',
     role: 'Head of Media Relations',
     bio: 'PR expert with deep connections in journalism and extensive experience in crisis communications.',
-    avatar: '/placeholder-avatar-3.jpg'
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=160&h=160&fit=crop&crop=face'
   },
   {
     name: 'Robert Green',
     role: 'VP of Operations',
-    bio: 'Operations specialist ensuring seamless press release distribution and client success.',
-    avatar: '/placeholder-avatar-4.jpg'
+    bio: 'Operations specialist ensuring seamless release media distribution and client success.',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=160&h=160&fit=crop&crop=face'
   }
 ]
 
@@ -75,7 +75,7 @@ const timeline = [
   {
     year: '2020',
     title: 'Founded',
-    description: 'Reporterahead launches with a mission to democratize press release distribution.'
+    description: 'Reporterahead launches with a mission to democratize release media distribution.'
   },
   {
     year: '2021',
@@ -90,12 +90,12 @@ const timeline = [
   {
     year: '2023',
     title: 'Innovation Leader',
-    description: 'Launched real-time distribution and became the fastest-growing press release service.'
+    description: 'Launched real-time distribution and became the fastest-growing release media service.'
   },
   {
     year: '2024',
     title: 'Market Leader',
-    description: 'Reached 50K+ press releases distributed and 125M+ global audience reach.'
+    description: 'Reached 50K+ release media distributed and 125M+ global audience reach.'
   }
 ]
 
@@ -112,7 +112,7 @@ export default function AboutPage() {
               About Reporterahead
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-600 max-w-3xl mx-auto">
-              We're revolutionizing how companies share their stories with the world through innovative press release distribution and media connections.
+              We're revolutionizing how companies share their stories with the world through innovative release media distribution and media connections.
             </p>
           </div>
         </div>
@@ -139,7 +139,7 @@ export default function AboutPage() {
             Our Mission
           </h2>
           <p className="mt-6 text-xl leading-8 text-gray-600">
-            To democratize press release distribution and empower every company, from startups to enterprises, to share their stories with global audiences effectively.
+            To democratize release media distribution and empower every company, from startups to enterprises, to share their stories with global audiences effectively.
           </p>
           <div className="mt-8 flex justify-center">
             <Link 
@@ -229,7 +229,11 @@ export default function AboutPage() {
             {team.map((member, index) => (
               <div key={index} className="rounded-xl border border-gray-200 bg-white p-8 shadow-lg">
                 <div className="flex items-center gap-6">
-                  <div className="h-20 w-20 rounded-full bg-gray-200"></div>
+                  <img
+                    src={member.avatar}
+                    alt={member.name}
+                    className="h-20 w-20 rounded-full object-cover ring-2 ring-gray-200 flex-shrink-0"
+                  />
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900">{member.name}</h3>
                     <p className="text-[#F78812] font-medium">{member.role}</p>
@@ -251,7 +255,7 @@ export default function AboutPage() {
                 Powered by Innovation
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                Our cutting-edge technology ensures your press releases reach the right audience at the right time.
+                Our cutting-edge technology ensures your release media reach the right audience at the right time.
               </p>
               <div className="mt-8 space-y-4">
                 {[
@@ -267,7 +271,13 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-[#E02401]/10 to-[#F78812]/10"></div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=800&fit=crop"
+                alt="Innovation and technology dashboard"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -279,16 +289,9 @@ export default function AboutPage() {
             Ready to Share Your Story?
           </h2>
           <p className="mt-4 text-xl text-white/90">
-            Join thousands of companies who trust Reporterahead for their press release distribution
+            Join thousands of companies who trust Reporterahead for their release media distribution
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Link
-              href="/pricing"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-3 text-base font-semibold text-[#E02401] shadow-lg transition-all hover:bg-gray-100"
-            >
-              View Pricing
-              <ArrowRight className="h-5 w-5" />
-            </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white bg-transparent px-8 py-3 text-base font-semibold text-white transition-all hover:bg-white hover:text-[#E02401]"

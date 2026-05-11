@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Calendar, Clock, Eye, Share2, Facebook, Twitter, Linkedin, Mail, User, Tag } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Eye, Share2, Facebook, Twitter, Linkedin, Mail, Tag } from 'lucide-react'
 import { NavbarShell } from '@/components/shared/navbar-shell'
 import { Footer } from '@/components/shared/footer'
 import { buildPageMetadata } from '@/lib/seo'
@@ -18,7 +18,7 @@ const mockPressRelease = {
   category: 'Technology',
   tags: ['AI', 'Funding', 'Machine Learning', 'Innovation'],
   views: '12.5K',
-  featuredImage: '/placeholder-tech.jpg',
+  featuredImage: 'https://picsum.photos/seed/tech1/1200/600',
   content: `
     <p>SAN FRANCISCO, CA - TechStart Inc., a leading artificial intelligence technology company, today announced the successful completion of its $50 million Series C funding round, led by prominent venture capital firm Global Ventures with participation from existing investors including Innovation Capital and Tech Fund.</p>
 
@@ -52,27 +52,9 @@ const mockPressRelease = {
 }
 
 const relatedArticles = [
-  {
-    id: 2,
-    title: 'Global Marketing Co. Launches Revolutionary Digital Campaign Platform',
-    excerpt: 'New platform promises to transform how businesses connect with customers through AI-driven personalization.',
-    date: '2024-01-14',
-    category: 'Marketing'
-  },
-  {
-    id: 3,
-    title: 'Innovation Labs Partners with Major Universities for Research Initiative',
-    excerpt: 'Strategic collaboration aims to advance sustainable technology solutions and create breakthrough innovations.',
-    date: '2024-01-13',
-    category: 'Research'
-  },
-  {
-    id: 4,
-    title: 'EcoTech Solutions Unveils Carbon-Neutral Manufacturing Process',
-    excerpt: 'Pioneering sustainable manufacturing method reduces carbon emissions by 90% while maintaining efficiency.',
-    date: '2024-01-12',
-    category: 'Sustainability'
-  }
+  { id: 2, title: 'Global Marketing Co. Launches Revolutionary Digital Campaign Platform', excerpt: 'New platform promises to transform how businesses connect with customers through AI-driven personalization.', category: 'Marketing', image: 'https://picsum.photos/seed/marketing2/600/400' },
+  { id: 3, title: 'Innovation Labs Partners with Major Universities for Research Initiative', excerpt: 'Strategic collaboration aims to advance sustainable technology solutions and create breakthrough innovations.', category: 'Research', image: 'https://picsum.photos/seed/research3/600/400' },
+  { id: 4, title: 'EcoTech Solutions Unveils Carbon-Neutral Manufacturing Process', excerpt: 'Pioneering sustainable manufacturing method reduces carbon emissions by 90% while maintaining efficiency.', category: 'Sustainability', image: 'https://picsum.photos/seed/eco4/600/400' },
 ]
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -95,7 +77,7 @@ export default function PressReleasePage() {
           <nav className="flex items-center gap-2 text-sm text-gray-600">
             <Link href="/" className="hover:text-[#E02401]">Home</Link>
             <span>/</span>
-            <Link href="/press-releases" className="hover:text-[#E02401]">Press Releases</Link>
+            <Link href="/press-releases" className="hover:text-[#E02401]">Release Media</Link>
             <span>/</span>
             <span className="text-gray-900">{mockPressRelease.title}</span>
           </nav>
@@ -110,20 +92,12 @@ export default function PressReleasePage() {
             className="inline-flex items-center gap-2 text-gray-600 hover:text-[#E02401]"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Press Releases
+            Back to Release Media
           </Link>
         </div>
 
         <header className="mb-8">
           <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-            <span className="inline-flex items-center gap-1">
-              <Calendar className="h-4 w-4" />
-              {mockPressRelease.date}
-            </span>
-            <span className="inline-flex items-center gap-1">
-              <Clock className="h-4 w-4" />
-              {mockPressRelease.time}
-            </span>
             <span className="inline-flex items-center gap-1">
               <Eye className="h-4 w-4" />
               {mockPressRelease.views} views
@@ -165,7 +139,11 @@ export default function PressReleasePage() {
         {/* Featured Image */}
         <div className="mb-8">
           <div className="aspect-video overflow-hidden rounded-xl bg-gray-200">
-            <div className="h-full w-full bg-gradient-to-br from-[#E02401]/20 to-[#F78812]/20"></div>
+            <img
+              src={mockPressRelease.featuredImage}
+              alt={mockPressRelease.title}
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
 
@@ -186,7 +164,7 @@ export default function PressReleasePage() {
 
         {/* Share Section */}
         <section className="mt-12 border-t border-gray-200 pt-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Share this press release</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Share this release media</h3>
           <div className="flex flex-wrap gap-3">
             <button className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
               <Facebook className="h-4 w-4" />
@@ -210,37 +188,26 @@ export default function PressReleasePage() {
         {/* Related Articles */}
         <section className="mt-16 border-t border-gray-200 pt-12">
           <h3 className="text-2xl font-bold tracking-tight text-gray-900 mb-8">
-            More Press Releases
+            More Release Media
           </h3>
           <div className="grid gap-6 lg:grid-cols-3">
             {relatedArticles.map((article) => (
-              <article key={article.id} className="group rounded-xl border border-gray-200 bg-white p-6 transition-all hover:shadow-lg">
-                <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                  <Calendar className="h-4 w-4" />
-                  {article.date}
+              <article key={article.id} className="group rounded-xl border border-gray-200 bg-white overflow-hidden transition-all hover:shadow-lg">
+                <div className="aspect-video overflow-hidden bg-gray-200">
+                  <img src={article.image} alt={article.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
                 </div>
-                
-                <span className="inline-flex items-center rounded-full bg-[#F78812]/10 px-3 py-1 text-xs font-semibold text-[#F78812] mb-3">
-                  {article.category}
-                </span>
-                
-                <h4 className="text-lg font-semibold text-gray-900 group-hover:text-[#E02401] mb-2">
-                  <Link href={`/press-releases/${article.id}`}>
-                    {article.title}
+                <div className="p-6">
+                  <span className="inline-flex items-center rounded-full bg-[#F78812]/10 px-3 py-1 text-xs font-semibold text-[#F78812] mb-3">
+                    {article.category}
+                  </span>
+                  <h4 className="text-lg font-semibold text-gray-900 group-hover:text-[#E02401] mb-2">
+                    <Link href={`/press-releases/${article.id}`}>{article.title}</Link>
+                  </h4>
+                  <p className="text-gray-600 text-sm line-clamp-2 mb-4">{article.excerpt}</p>
+                  <Link href={`/press-releases/${article.id}`} className="inline-flex items-center gap-1 text-sm font-semibold text-[#E02401] hover:text-[#C01E01]">
+                    Read more <ArrowRight className="h-4 w-4" />
                   </Link>
-                </h4>
-                
-                <p className="text-gray-600 text-sm line-clamp-2 mb-4">
-                  {article.excerpt}
-                </p>
-                
-                <Link 
-                  href={`/press-releases/${article.id}`}
-                  className="inline-flex items-center gap-1 text-sm font-semibold text-[#E02401] hover:text-[#C01E01]"
-                >
-                  Read more
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                </div>
               </article>
             ))}
           </div>
